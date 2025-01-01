@@ -223,6 +223,17 @@ $(call Device/rk3588)
 endef
 TARGET_DEVICES += lyt_t88m
 
+define Device/yijiahe_jm10
+$(call Device/rk3588)
+  DEVICE_MODEL := YIJIAHE
+  DEVICE_VENDOR := JM10
+  DEVICE_PACKAGES := kmod-r8125 kmod-nvme kmod-scsi-core kmod-hwmon-pwmfan kmod-thermal kmod-dsa kmod-dsa-tag-dsa kmod-dsa-mv88e6xxx kmod-rkwifi-bcmdhd-pcie rkwifi-firmware rkwifi-firmware-ap6275p
+  SUPPORTED_DEVICES += yijiahe,jm10
+  DEVICE_DTS := rk3588-yijiahe-jm10
+  UBOOT_DEVICE_NAME := yijiahe-jm10-rk3588
+endef
+TARGET_DEVICES += yijiahe_jm10
+
 define Device/hinlink_rk3588
 $(call Device/rk3588)
   DEVICE_VENDOR := HINLINK
@@ -306,6 +317,16 @@ $(call Device/rk3568)
   DEVICE_PACKAGES := kmod-nvme kmod-scsi-core
 endef
 TARGET_DEVICES += dg_nas-lite
+
+define Device/dg_tn3568
+$(call Device/rk3568)
+  DEVICE_VENDOR := DG
+  DEVICE_MODEL := TN3568
+  DEVICE_DTS := rk3568-dg-tn3568
+  SUPPORTED_DEVICES += dg,tn3568
+  DEVICE_PACKAGES := kmod-scsi-core kmod-hwmon-pwmfan kmod-thermal
+endef
+TARGET_DEVICES += dg_tn3568
 
 define Device/ezpro_mrkaio-m68s
 $(call Device/rk3568)
